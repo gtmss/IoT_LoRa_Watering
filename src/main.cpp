@@ -67,6 +67,7 @@ uint8_t appPort = 2;
 * the datarate, in case the LoRaMAC layer did not receive an acknowledgment
 */
 uint8_t confirmedNbTrials = 4;
+#define 
 
 /* Prepares the payload of the frame */
 static void prepareTxFrame( uint8_t port )
@@ -122,7 +123,7 @@ void loop()
 		case DEVICE_STATE_SEND:
 		{
 			prepareTxFrame( appPort );
-			LoRaWAN.send(messageToSend, strlen(messageToSend));
+			LoRaWAN.send();
 			deviceState = DEVICE_STATE_CYCLE;
 			break;
 		}
